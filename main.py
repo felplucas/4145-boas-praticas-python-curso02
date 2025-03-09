@@ -30,3 +30,6 @@ MENSAGEM = "Seu pedido saiu para entrega!"
 # notificacao_email = NotificacaoEmail().enviar_notificacao(cliente, MENSAGEM)
 # notificacao_sms = NotificacaoSMS().enviar_notificacao(cliente, MENSAGEM)
 notificacoes = NotificacaoFacade().enviar_notificacoes(cliente, MENSAGEM)
+
+pedido_delivery.status = "Pedido confirmado!"
+notificacoes = NotificacaoFacade().enviar_notificacoes(cliente, pedido_delivery.status)
