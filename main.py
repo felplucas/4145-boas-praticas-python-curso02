@@ -7,6 +7,7 @@ from pagamento.pagamento_pix import PagamentoPIX
 from pagamento.pagamento_factory import PagamentoFactory
 from notificacao.notificacao_email import NotificacaoEmail
 from notificacao.notificacao_sms import NotificacaoSMS
+from notificacao.notificacao_facade import NotificacaoFacade
 
 cliente = Cliente("Lucas", "Sicredi")
 item_um = Item("Pizza", 30.0)
@@ -26,5 +27,6 @@ pagamento = PagamentoFactory.criar_pagamento(tipo_pagamento)
 pagamento.processar(valor_pedido)
 
 MENSAGEM = "Seu pedido saiu para entrega!"
-notificacao_email = NotificacaoEmail().enviar_notificacao(cliente, MENSAGEM)
-notificacao_sms = NotificacaoSMS().enviar_notificacao(cliente, MENSAGEM)
+# notificacao_email = NotificacaoEmail().enviar_notificacao(cliente, MENSAGEM)
+# notificacao_sms = NotificacaoSMS().enviar_notificacao(cliente, MENSAGEM)
+notificacoes = NotificacaoFacade().enviar_notificacoes(cliente, MENSAGEM)
